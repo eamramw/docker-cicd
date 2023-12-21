@@ -1,5 +1,5 @@
 # Starting off with the Jenkins base Image
-FROM jenkins/jenkins:latest
+FROM jenkins/jenkins:2.414.3-jdk17
  
 # Installing the plugins we need using the in-built install-plugins.sh script instead of manual install plugins
 RUN /usr/local/bin/install-plugins.sh git matrix-auth workflow-aggregator docker-workflow blueocean credentials-binding
