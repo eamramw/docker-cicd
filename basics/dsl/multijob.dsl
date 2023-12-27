@@ -32,3 +32,18 @@ job('Yaniv example') {
     }
 }
 
+job('eamram example') {
+    scm {
+        git('https://github.com/yanivomc/docker-cicd.git') {  node -> // is hudson.plugins.git.GitSCM
+            node / gitConfigName('DSL yaniv')
+            node / gitConfigEmail('jenkins-dsl@newtech.academy')
+        }
+    }
+    triggers {
+        scm('H/5 * * * *')
+    }
+    steps {
+        shell("docker build -t test:test .")
+    }
+}
+
